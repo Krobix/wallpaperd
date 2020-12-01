@@ -5,6 +5,10 @@ import random
 
 PATH = "/sdcard/Pictures/wallpaperd"
 
+if os.path.isfile("~/.wallpaperpath"):
+    with open("~/.wallpaperpath", "r") as f:
+        PATH = f.read().strip()
+
 while True:
     chosen = random.choice(os.listdir(PATH))
     fpath = PATH + chosen
